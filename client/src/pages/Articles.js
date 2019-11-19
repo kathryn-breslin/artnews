@@ -22,6 +22,14 @@ class Articles extends Component {
         {this.state.articles.map(article => (
           <div key={article._id}>
             <h1>{article.title}</h1>
+            <img
+              src={
+                article.image
+                  ? article.image
+                  : "http://www.stleos.uq.edu.au/wp-content/uploads/2016/08/image-placeholder.png"
+              }
+              alt={article.title}
+            />
             <p>{article.link}</p>
           </div>
         ))}

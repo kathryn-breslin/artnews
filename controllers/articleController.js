@@ -7,7 +7,7 @@ module.exports = {
     axios.get("http://www.artnews.com/").then(function(response) {
       var $ = cheerio.load(response.data);
     
-      $("h2.entry-title").each(function(i, element) {
+      $(".post-wrap").each(function(i, element) {
         var results = {};
         results.title = $(element)
           .find("a")
@@ -15,6 +15,9 @@ module.exports = {
         results.link = $(element)
           .find("a")
           .attr("href");
+        results.image = $(element)
+        .find("img")
+        .attr("src");
           console.log(results)
           db.Article.create(results).then(function(dbModel){
               console.log(dbModel)
