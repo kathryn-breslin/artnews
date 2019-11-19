@@ -7,8 +7,6 @@ router
   .post(articleController.create);
 
 router.route("/:id")
-    // .get(booksController.findById)
-    // .put(booksController.update)
     .delete(articleController.remove);
 
 module.exports = router;
