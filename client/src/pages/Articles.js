@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { ArticleCard } from "../components/ArticleCard/ArticleCard";
 import API from "../utils/API";
+import "./Articles.css";
 
 class Articles extends Component {
   state = {
@@ -23,30 +24,14 @@ class Articles extends Component {
     return (
       <div className="container">
         <div className="row">
-          <div className="col s12 m7">
-            <ArticleCard>
-              {articles.map(article => (
-                <div className="card" key={article._id}>
-                  <div className="card-image">
-                    <img
-                      src={
-                        article.image
-                          ? article.image
-                          : "http://www.stleos.uq.edu.au/wp-content/uploads/2016/08/image-placeholder.png"
-                      }
-                      alt={article.title}
-                    />
-                  </div>
-                  <div className="card-content">
-                    <p>{article.title}</p>
-                  </div>
-                  <div className="card-action">
-                    <a target="_blank" href={article.link}>ARTicle</a>
-                  </div>
-                </div>
-              ))}
-            </ArticleCard>
-          </div>
+            {articles.map(article => (
+              <ArticleCard
+              id={article._id}
+              image={article.image}
+              title={article.title}
+              link={article.link}
+              />
+            ))}
         </div>
       </div>
     );
