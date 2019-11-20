@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { ArticleCard, Jumbotron } from "../components";
+import { ArticleCard, Jumbotron, Nav } from "../components";
 import API from "../utils/API";
 import "./Articles.css";
 
@@ -25,6 +25,7 @@ class Articles extends Component {
       <div>
       <Jumbotron />
       <div className="container">
+      <Nav/>
         <div className="row">
           {articles.map(article => (
             <ArticleCard
