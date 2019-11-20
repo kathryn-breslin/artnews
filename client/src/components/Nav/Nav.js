@@ -22,7 +22,6 @@ const Nav = () => {
         <a
           className="nav-link"
           href="#"
-          tabindex="-1"
           aria-disabled="true"
         >
           Clear ARTicles

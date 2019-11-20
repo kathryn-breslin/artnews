@@ -18,6 +18,14 @@ class Articles extends Component {
       .catch(err => console.log(err));
   };
 
+  saveBookToDB = (article) => {
+    console.log("Save book!")
+    API.saveArticle({ 
+      title: article.title,
+
+    })
+  }
+
   render() {
     const { articles } = this.state;
 
@@ -25,7 +33,8 @@ class Articles extends Component {
       <div>
       <Jumbotron />
       <div className="container">
-      <Nav/>
+      <Nav />
+
         <div className="row">
           {articles.map(article => (
             <ArticleCard
@@ -33,6 +42,7 @@ class Articles extends Component {
               image={article.image}
               title={article.title}
               link={article.link}
+              onClick={() => this.saveBookToDB(article)}
             />
           ))}
         </div>

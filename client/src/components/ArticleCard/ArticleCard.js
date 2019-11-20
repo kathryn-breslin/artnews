@@ -25,6 +25,7 @@ function ArticleCard(props) {
         >
           ARTicle
         </a>
+        <button onClick={props.onClick}>Save</button>
       </div>
     </div>
   </div>
