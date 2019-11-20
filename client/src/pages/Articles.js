@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { ArticleCard } from "../components/ArticleCard/ArticleCard";
+import { ArticleCard, Jumbotron } from "../components";
 import API from "../utils/API";
 import "./Articles.css";
 
@@ -22,17 +22,20 @@ class Articles extends Component {
     const { articles } = this.state;
 
     return (
+      <div>
+      <Jumbotron />
       <div className="container">
         <div className="row">
-            {articles.map(article => (
-              <ArticleCard
+          {articles.map(article => (
+            <ArticleCard
               id={article._id}
               image={article.image}
               title={article.title}
               link={article.link}
-              />
-            ))}
+            />
+          ))}
         </div>
+      </div>
       </div>
     );
   }

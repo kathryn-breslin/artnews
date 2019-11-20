@@ -1,7 +1,6 @@
 import React from "react";
 
 function ArticleCard(props) {
-  console.log(props)
   return (
     <div className="col-6">
     <div className="card">

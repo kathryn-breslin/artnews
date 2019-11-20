@@ -1,13 +1,10 @@
-import React from 'react';
-// import './App.css';
+import React from "react";
 import Articles from "./pages/Articles";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <Articles/>
-      </header>
+      <Articles />
     </div>
   );
 }
