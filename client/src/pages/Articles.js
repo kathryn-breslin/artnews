@@ -18,12 +18,17 @@ class Articles extends Component {
       .catch(err => console.log(err));
   };
 
-  saveBookToDB = (article) => {
+  saveBookToDB = (id) => {
+    const article = this.state.articles.find(article => article._id === id);
+    console.log(article);
     console.log("Save book!")
-    API.saveArticle({ 
-      title: article.title,
-
-    })
+    // API.saveArticle({ 
+    //   id: article._id,
+    //   title: article.title,
+    //   link: article.link,
+    //   image: article.image,
+    //   saved: true
+    // }).then(() => {console.log("Book has been saved!")})
   }
 
   render() {
@@ -42,7 +47,7 @@ class Articles extends Component {
               image={article.image}
               title={article.title}
               link={article.link}
-              onClick={() => this.saveBookToDB(article)}
+              onClick={() => this.saveBookToDB(article._id)}
             />
           ))}
         </div>
