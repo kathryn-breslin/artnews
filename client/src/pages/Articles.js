@@ -22,13 +22,8 @@ class Articles extends Component {
     const article = this.state.articles.find(article => article._id === id);
     console.log(article);
     console.log("Save book!")
-    // API.saveArticle({ 
-    //   id: article._id,
-    //   title: article.title,
-    //   link: article.link,
-    //   image: article.image,
-    //   saved: true
-    // }).then(() => {console.log("Book has been saved!")})
+    API.saveArticle(article._id).then( res => {console.log(res)})
+      // () => {console.log("Book has been saved!")}
   }
 
   render() {

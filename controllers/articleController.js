@@ -45,7 +45,7 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   update: function(req, res) {
-    db.Article.findOneAndUpdate({ id: req.params.id }, req.body)
+    db.Article.findOneAndUpdate({ _id: req.params.id }, { $set: { saved: true } })
     .then(dbModel => res.json(dbModel))
     .catch(err => res.status(422).json(err));
   },
