@@ -1,11 +1,15 @@
 import React from "react";
-import Articles from "./pages/Articles";
-
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Articles from "./pages/Articles/Articles";
+import Saved from "./pages/Saved/Saved";
 function App() {
   return (
-    <div className="App">
-      <Articles />
-    </div>
+    <Router>
+      <div>
+        <Route exact path="/" component={Articles}/>
+        <Route exact path="/saved" component={Saved}/>
+      </div>
+    </Router>
   );
 }
 
