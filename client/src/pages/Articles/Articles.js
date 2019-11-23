@@ -23,10 +23,8 @@ class Articles extends Component {
     console.log(article);
     console.log("Save book!");
     API.saveArticle(article._id).then(res => {
-      // console.log(res);
       this.getArtNews();
     });
-    // () => {console.log("Book has been saved!")}
   };
 
   render() {
@@ -39,21 +37,21 @@ class Articles extends Component {
           <Nav />
 
           <div className="row">
-            {/* {articles.saved ? (
-              <> */}
-                {articles.map(article => (
-                  <ArticleCard
-                    id={article._id}
-                    image={article.image}
-                    title={article.title}
-                    link={article.link}
-                    onClick={() => this.saveBookToDB(article._id)}
-                  />
-                ))}
-              {/* </>
-            ) : (
-              <h1>Figure out something</h1>
-            )} */}
+            {articles.map(article => {
+              if (article.saved === false) {
+                return (
+                  <>
+                    <ArticleCard
+                      id={article._id}
+                      image={article.image}
+                      title={article.title}
+                      link={article.link}
+                      onClick={() => this.saveBookToDB(article._id)}
+                    />
+                  </>
+                );
+              }
+            })}
           </div>
         </div>
       </div>
