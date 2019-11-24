@@ -7,17 +7,18 @@ module.exports = {
     axios.get("http://www.artnews.com/").then(function(response) {
       var $ = cheerio.load(response.data);
     
-      $(".post-wrap").each(function(i, element) {
+      $(".story").each(function(i, element) {
         var results = {};
-        results.title = $(element)
-          .find("a")
-          .text();
+
+        var text = $(element).find("a").text();
+        var split = text.split('width="')
+        var image = $(element).find(".lrv-a-crop-2x3").text()
+        var imageSplit = image.split("src=")
+        results.title = split[1]
         results.link = $(element)
           .find("a")
           .attr("href");
-        results.image = $(element)
-        .find("img")
-        .attr("src");
+        results.image = imageSplit[1]
           console.log(results)
           db.Article.create(results).then(function(dbModel){
               console.log(dbModel)

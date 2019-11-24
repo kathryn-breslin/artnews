@@ -14,8 +14,11 @@ class Articles extends Component {
 
   getArtNews = () => {
     API.getArticles()
-      .then(res => this.setState({ articles: res.data }))
-      .catch(err => console.log(err));
+    .then(res => {
+      console.log(res.data);
+    })
+      // .then(res => this.setState({ articles: res.data }))
+      // .catch(err => console.log(err));
   };
 
   saveBookToDB = id => {
