@@ -11,9 +11,9 @@ module.exports = {
         var results = {};
 
         var text = $(element).find("a").text();
-        var split = text.split('width="')
+        var split = text.split('width="">')
         var image = $(element).find(".lrv-a-crop-2x3").text()
-        var imageSplit = image.split("src=")
+        var imageSplit = image.split('src="')
         results.title = split[1]
         results.link = $(element)
           .find("a")
