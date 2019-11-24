@@ -27,6 +27,14 @@ class Articles extends Component {
     });
   };
 
+  scrapeArticles = () => {
+    API.scrape()
+    .then(res => {
+      //Could not proxy request /api/articles/scrape from localhost:3000 to http://localhost:3001/.
+      console.log(res)
+    })
+  }
+  
   render() {
     const { articles } = this.state;
 
@@ -34,7 +42,9 @@ class Articles extends Component {
       <div>
         <Jumbotron />
         <div className="container">
-          <Nav />
+          <Nav 
+          onClick={() => this.scrapeArticles()}
+          />
 
           <div className="row">
             {articles.map(article => {

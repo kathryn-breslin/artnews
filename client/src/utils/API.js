@@ -12,5 +12,8 @@ export default {
     },
     saveArticle: function(id) {
         return axios.put("/api/articles/" + id)
+    }, 
+    scrape: function() {
+        return axios.get("/api/articles/scrape")
     }
 };
