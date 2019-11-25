@@ -32,6 +32,7 @@ class Articles extends Component {
     .then(res => {
       if (res){
         console.log(res)
+        console.log("Returning data")
         this.getArtNews();
       }
       else {
@@ -66,6 +67,7 @@ class Articles extends Component {
                 return (
                   <>
                     <ArticleCard
+                      key={article._id}
                       id={article._id}
                       image={article.image}
                       title={article.title}

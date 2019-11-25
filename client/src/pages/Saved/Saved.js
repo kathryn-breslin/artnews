@@ -30,6 +30,7 @@ class Saved extends Component {
                 return (
                   <>
                     <ArticleCard
+                      key={saved._id}
                       id={saved._id}
                       image={saved.image}
                       title={saved.title}
