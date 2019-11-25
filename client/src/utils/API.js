@@ -1,5 +1,5 @@
 import axios from "axios";
-
+const APIURL = "http://localhost:3001";
 export default {
     getArticles: function() {
         return axios.get("/api/articles")
@@ -14,6 +14,6 @@ export default {
         return axios.put("/api/articles/" + id)
     }, 
     scrape: function() {
-        return axios.get("/api/articles/scrape")
+        return axios.get(`${APIURL}/api/articles/scrape`)
     }
 };

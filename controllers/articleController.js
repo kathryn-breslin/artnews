@@ -19,12 +19,13 @@ module.exports = {
           .find("a")
           .attr("href");
         results.image = imageSplit[1]
-          // console.log(results)
+          console.log(results)
           db.Article.create(results).then(function(dbModel){
-              // console.log(dbModel)
+              console.log(dbModel)
+              res.redirect("/")
           })
           .catch(function(err) {
-              // console.log(err)
+              console.log(err)
           })
       });
     });

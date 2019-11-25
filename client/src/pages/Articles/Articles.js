@@ -30,9 +30,22 @@ class Articles extends Component {
   scrapeArticles = () => {
     API.scrape()
     .then(res => {
-      //Could not proxy request /api/articles/scrape from localhost:3000 to http://localhost:3001/.
-      console.log(res)
+      if (res){
+        console.log(res)
+        this.getArtNews();
+      }
+      else {
+        console.log("Add error handling should no results return")
+      }
     })
+  }
+
+  clearArticles = () => {
+    // API.scrape()
+    // .then(res => {
+    //   console.log(res)
+    // })
+    console.log("clear")
   }
   
   render() {
@@ -43,7 +56,8 @@ class Articles extends Component {
         <Jumbotron />
         <div className="container">
           <Nav 
-          onClick={() => this.scrapeArticles()}
+          scrapeArticles={() => this.scrapeArticles()}
+          clearArticles={() => this.clearArticles()}
           />
 
           <div className="row">
