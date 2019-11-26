@@ -53,7 +53,7 @@ class Articles extends Component {
           <div className="row">
             <div className="col-12">
               <h1 id="title">all articles.</h1>
-              <p id="titleText">collection of new articles from <a target="_blank" href="https://www.artnews.com/">artnews.com</a>.</p>
+              <p id="titleText">collection of new articles from <a target="_blank" rel="noopener noreferrer" href="https://www.artnews.com/">artnews.com</a>.</p>
             </div>
           </div>
 
@@ -61,7 +61,6 @@ class Articles extends Component {
             {articles.map(article => {
               if (article.saved === false) {
                 return (
-                  <>
                     <ArticleCard
                       key={article._id}
                       id={article._id}
@@ -70,7 +69,6 @@ class Articles extends Component {
                       link={article.link}
                       onClick={() => this.saveBookToDB(article._id)}
                     />
-                  </>
                 );
               }
             })}

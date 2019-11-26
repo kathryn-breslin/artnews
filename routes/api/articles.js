@@ -3,8 +3,12 @@ const articleController = require("../../controllers/articleController");
 
 router
   .route("/")
-  .get(articleController.findAll)
+  .get(articleController.findAllUnsaved)
   .post(articleController.create);
+
+router
+  .route("/saved")
+  .get(articleController.findSaved)
 
 router
   .route("/scrape")

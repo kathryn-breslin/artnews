@@ -21,8 +21,8 @@ module.exports = {
         results.image = imageSplit[1]
           // console.log(results)
           db.Article.create(results).then(function(dbModel){
-              // console.log(dbModel)
-              window.location.reload();
+              console.log(dbModel)
+              // window.location.reload();
           })
           .catch(function(err) {
               console.log(err)
@@ -30,8 +30,14 @@ module.exports = {
       });
     });
   },
-  findAll: function(req, res) {
+  findAllUnsaved: function(req, res) {
     db.Article.find({})
+      .sort({ _id: -1})
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
+  findSaved: function(req, res) {
+    db.Article.find({"saved": true})
       .sort({ _id: -1})
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));

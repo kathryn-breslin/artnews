@@ -11,8 +11,12 @@ class Saved extends Component {
     this.getArtNews();
   }
 
+  // getArtNews = () => {
+  //   API.getArticles().then(res => this.setState({ savedArticles: res.data }));
+  // };
+
   getArtNews = () => {
-    API.getArticles().then(res => this.setState({ savedArticles: res.data }));
+    API.getAllSaved().then(res => this.setState({ savedArticles: res.data }))
   };
 
   deleteArticle = id => {
@@ -33,7 +37,7 @@ class Saved extends Component {
           <div className="row">
             <div className="col-12">
               <h1 id="title">saved articles.</h1>
-              <p id="titleText">read articles you saved from <a target="_blank" href="https://www.artnews.com/">artnews.com</a>.</p>
+              <p id="titleText">read articles you saved from <a target="_blank" rel="noopener noreferrer" href="https://www.artnews.com/">artnews.com</a>.</p>
             </div>
           </div>
           <div className="row">

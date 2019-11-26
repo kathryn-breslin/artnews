@@ -7,6 +7,9 @@ export default {
     getArticle: function(id) {
         return axios.get("/api/articles/" + id)
     },
+    getAllSaved: function() {
+        return axios.get("/api/articles/saved")
+    },
     deleteArticle: function(id) {
         return axios.delete("/api/articles/" + id)
     },
