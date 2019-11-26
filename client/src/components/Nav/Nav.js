@@ -27,14 +27,6 @@ const Nav = props => {
           Scrape
         </button>
       </li>
-      {/* <li className="nav-item">
-        <button
-          className="btn"
-          onClick={props.clearArticles}
-        >
-          Clear
-        </button>
-      </li> */}
     </ul>
   );
 };
