@@ -22,7 +22,7 @@ module.exports = {
           // console.log(results)
           db.Article.create(results).then(function(dbModel){
               // console.log(dbModel)
-              res.redirect("/")
+              window.location.reload();
           })
           .catch(function(err) {
               console.log(err)

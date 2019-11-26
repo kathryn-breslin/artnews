@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { ArticleCard, Jumbotron, Nav } from "../../components";
+import { SavedCard, Jumbotron, Nav } from "../../components";
 import API from "../../utils/API";
 
 class Saved extends Component {
@@ -12,10 +12,19 @@ class Saved extends Component {
   }
 
   getArtNews = () => {
-    API.getArticles().then(
-      res => this.setState({ savedArticles: res.data })
-    );
+    API.getArticles().then(res => this.setState({ savedArticles: res.data }));
   };
+
+  deleteArticle = id => {
+    const saved = this.state.savedArticles.find(saved => saved._id === id);
+
+    API.deleteArticle(saved._id)
+    .then(res => this.getArtNews())
+    .catch(err => console.log(err));
+
+    console.log("delete article");
+  };
+
   render() {
     const { savedArticles } = this.state;
     return (
@@ -29,12 +38,13 @@ class Saved extends Component {
               if (saved.saved === true) {
                 return (
                   <>
-                    <ArticleCard
+                    <SavedCard
                       key={saved._id}
                       id={saved._id}
                       image={saved.image}
                       title={saved.title}
                       link={saved.link}
+                      deleteArticle={() => this.deleteArticle(saved._id)}
                     />
                   </>
                 );

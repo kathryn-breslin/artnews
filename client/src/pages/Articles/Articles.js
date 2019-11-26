@@ -40,14 +40,6 @@ class Articles extends Component {
       }
     })
   }
-
-  clearArticles = () => {
-    // API.scrape()
-    // .then(res => {
-    //   console.log(res)
-    // })
-    console.log("clear")
-  }
   
   render() {
     const { articles } = this.state;
