@@ -6,7 +6,7 @@ module.exports = {
   scrape: function(req, res) {
     axios.get("http://www.artnews.com/").then(function(response) {
       var $ = cheerio.load(response.data);
-    
+      var scraperCounter = 0;
       $(".story").each(function(i, element) {
         var results = {};
 
@@ -21,11 +21,15 @@ module.exports = {
         results.image = imageSplit[1]
           // console.log(results)
           db.Article.create(results).then(function(dbModel){
+              scraperCounter++;
               console.log(dbModel)
               // window.location.reload();
+              if (scraperCounter === 5) {
+                res.json(dbModel)
+              }
           })
           .catch(function(err) {
-              console.log(err)
+              res.json(err)
           })
       });
     });

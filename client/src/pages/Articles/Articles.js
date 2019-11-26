@@ -32,6 +32,7 @@ class Articles extends Component {
       if (res) {
         console.log(res);
         console.log("Returning data");
+        window.location.reload();
         this.getArtNews();
       } else {
         console.log("Add error handling should no results return");

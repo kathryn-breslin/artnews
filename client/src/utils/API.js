@@ -2,7 +2,7 @@ import axios from "axios";
 // const APIURL = "http://localhost:3001";
 export default {
     getArticles: function() {
-        return axios.get("/api/articles")
+        return axios.get("/api/articles/")
     },
     getArticle: function(id) {
         return axios.get("/api/articles/" + id)
