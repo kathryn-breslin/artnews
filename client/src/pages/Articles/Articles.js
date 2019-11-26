@@ -28,19 +28,17 @@ class Articles extends Component {
   };
 
   scrapeArticles = () => {
-    API.scrape()
-    .then(res => {
-      if (res){
-        console.log(res)
-        console.log("Returning data")
+    API.scrape().then(res => {
+      if (res) {
+        console.log(res);
+        console.log("Returning data");
         this.getArtNews();
+      } else {
+        console.log("Add error handling should no results return");
       }
-      else {
-        console.log("Add error handling should no results return")
-      }
-    })
-  }
-  
+    });
+  };
+
   render() {
     const { articles } = this.state;
 
@@ -48,10 +46,16 @@ class Articles extends Component {
       <div>
         <Jumbotron />
         <div className="container">
-          <Nav 
-          scrapeArticles={() => this.scrapeArticles()}
-          clearArticles={() => this.clearArticles()}
+          <Nav
+            scrapeArticles={() => this.scrapeArticles()}
+            clearArticles={() => this.clearArticles()}
           />
+          <div className="row">
+            <div className="col-12">
+              <h1 id="title">all articles.</h1>
+              <p id="titleText">collection of new articles from <a target="_blank" href="https://www.artnews.com/">artnews.com</a>.</p>
+            </div>
+          </div>
 
           <div className="row">
             {articles.map(article => {
