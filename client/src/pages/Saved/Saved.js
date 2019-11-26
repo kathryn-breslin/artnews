@@ -11,10 +11,6 @@ class Saved extends Component {
     this.getArtNews();
   }
 
-  // getArtNews = () => {
-  //   API.getArticles().then(res => this.setState({ savedArticles: res.data }));
-  // };
-
   getArtNews = () => {
     API.getAllSaved().then(res => this.setState({ savedArticles: res.data }))
   };
@@ -45,7 +41,6 @@ class Saved extends Component {
             {savedArticles.map(saved => {
               if (saved.saved === true) {
                 return (
-                  <>
                     <SavedCard
                       key={saved._id}
                       id={saved._id}
@@ -54,7 +49,6 @@ class Saved extends Component {
                       link={saved.link}
                       deleteArticle={() => this.deleteArticle(saved._id)}
                     />
-                  </>
                 );
               }
             })}
