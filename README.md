@@ -2,7 +2,10 @@
 
 Scrape the latest news from artnews.com! 
 
+#### All Articles Page
 ![ArtNewsScraper](assets/artnewsOne.png)
+
+#### Saved Articles Page
 ![ArtNewsScraper](assets/artnewsTwo.png)
 
 ## Dependencies 
