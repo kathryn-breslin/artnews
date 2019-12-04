@@ -26,7 +26,10 @@ function ArticleCard(props) {
         >
           ARTicle
         </a>
-          <Button className="ui inverted red button" icon="heart outline" onClick={props.onClick}/>
+        <a onClick={props.onClick}>
+          Saved
+        </a>
+          {/* <Button className="ui inverted red button" icon="heart outline" onClick={props.onClick}/> */}
       </div>
     </div>
   </div>
