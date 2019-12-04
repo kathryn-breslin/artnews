@@ -2,7 +2,7 @@ import React from "react";
 
 function SavedCard(props) {
   return (
-    <div className="col-6">
+    <div className="col-lg-6 col-md-12 col-sm-12">
     <div className="card">
       <div className="card-image">
         <img
