@@ -5,7 +5,7 @@ import "./Articles.css";
 
 class Articles extends Component {
   state = {
-    articles: []
+    articles: [], 
   };
 
   componentDidMount() {
@@ -39,9 +39,8 @@ class Articles extends Component {
       }
     });
   };
-
   render() {
-    const { articles } = this.state;
+    const { articles, checked } = this.state;
 
     return (
       <div>
@@ -68,11 +67,13 @@ class Articles extends Component {
                       image={article.image}
                       title={article.title}
                       link={article.link}
+                      checked={checked}
                       onClick={() => this.saveBookToDB(article._id)}
                     />
                 );
               }
             })}
+            
           </div>
         </div>
       </div>
